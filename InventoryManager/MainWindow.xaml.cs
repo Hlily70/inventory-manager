@@ -11,14 +11,19 @@ using System.Windows.Shapes;
 
 namespace InventoryManager
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+
+            this.DataContext = new ViewModel.GroceryInventory();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var inventory = this.DataContext as ViewModel.GroceryInventory;
+
         }
     }
 }

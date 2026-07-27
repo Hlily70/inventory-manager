@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventoryManager.Model
 {
-    internal class GroceryItem
+    public class GroceryItem
     {
         public int Id { get; set; }
         public string Name { get; set; }

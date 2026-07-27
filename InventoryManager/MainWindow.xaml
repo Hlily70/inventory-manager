@@ -7,6 +7,28 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock Text="Nothing here, yet!" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50"/>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="150"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="{Binding newItemPrice}"/>
+
+        <TextBox Grid.Row="1" Text="{Binding newItemName, UpdateSourceTrigger=PropertyChanged}" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="30"/>
+        <TextBlock Grid.Row="1" Text="Item Name:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Margin="10, 10, 500, 10"/>
+
+        <TextBox Grid.Row="2" Text="{Binding newItemPrice, UpdateSourceTrigger=PropertyChanged}" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="30"/>
+        <TextBlock Grid.Row="2" Text="Item Price:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Margin="10, 10, 500, 10"/>
+
+        <TextBox Grid.Row="3" Text="{Binding newItemQuantity, UpdateSourceTrigger=PropertyChanged}" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="30"/>
+        <TextBlock Grid.Row="3" Text="Item Quantity:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Margin="10, 10, 500, 10"/>
+        
+        <Button Grid.Row="4" Content="Add Item" Height="50" Width="200" FontSize="30" Click="Button_Click"/>
+        
     </Grid>
 </Window>
