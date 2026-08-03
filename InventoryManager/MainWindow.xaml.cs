@@ -20,10 +20,5 @@ namespace InventoryManager
             this.DataContext = new ViewModel.GroceryInventory();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var inventory = this.DataContext as ViewModel.GroceryInventory;
-
-        }
     }
 }

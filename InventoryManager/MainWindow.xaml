@@ -17,18 +17,40 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="{Binding newItemPrice}"/>
+        <ListBox Grid.Row="0" ItemsSource="{Binding Items}"
+         Width="300"
+         Height="200">
 
-        <TextBox Grid.Row="1" Text="{Binding newItemName, UpdateSourceTrigger=PropertyChanged}" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="30"/>
+            <ListBox.ItemTemplate>
+
+                <DataTemplate>
+
+                    <StackPanel>
+
+                        <TextBlock Text="{Binding Name}"/>
+
+                        <TextBlock Text="{Binding Price}"/>
+
+                        <TextBlock Text="{Binding Quantity}"/>
+
+                    </StackPanel>
+
+                </DataTemplate>
+
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+
+        <TextBox Grid.Row="1" Text="{Binding NewItemName, UpdateSourceTrigger=PropertyChanged}" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="30"/>
         <TextBlock Grid.Row="1" Text="Item Name:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Margin="10, 10, 500, 10"/>
 
-        <TextBox Grid.Row="2" Text="{Binding newItemPrice, UpdateSourceTrigger=PropertyChanged}" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="30"/>
+        <TextBox Grid.Row="2" Text="{Binding NewItemPrice, UpdateSourceTrigger=PropertyChanged}" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="30"/>
         <TextBlock Grid.Row="2" Text="Item Price:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Margin="10, 10, 500, 10"/>
 
-        <TextBox Grid.Row="3" Text="{Binding newItemQuantity, UpdateSourceTrigger=PropertyChanged}" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="30"/>
+        <TextBox Grid.Row="3" Text="{Binding NewItemQuantity, UpdateSourceTrigger=PropertyChanged}" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="30"/>
         <TextBlock Grid.Row="3" Text="Item Quantity:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Margin="10, 10, 500, 10"/>
         
-        <Button Grid.Row="4" Content="Add Item" Height="50" Width="200" FontSize="30" Click="Button_Click"/>
+        <Button Grid.Row="4" Content="Add Item" Height="50" Width="200" FontSize="30" Command="{Binding AddItemCommand}"/>
         
     </Grid>
 </Window>
