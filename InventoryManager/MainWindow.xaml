@@ -4,22 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InventoryManager"
+        xmlns:view="clr-namespace:InventoryManager.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="750">
     <Grid>
-        
-        <Grid.RowDefinitions>
-            <RowDefinition
-                Height="150"/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
 
-        <ListBox Grid.Row="0" ItemsSource="{Binding Items}"
-         Width="300"
-         Height="200">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox Grid.Column="0" ItemsSource="{Binding Items}"
+         Height="450" >
 
             <ListBox.ItemTemplate>
 
@@ -41,16 +37,7 @@
 
         </ListBox>
 
-        <TextBox Grid.Row="1" Text="{Binding NewItemName, UpdateSourceTrigger=PropertyChanged}" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="30"/>
-        <TextBlock Grid.Row="1" Text="Item Name:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Margin="10, 10, 500, 10"/>
+        <view:AddItemView Grid.Column="1" HorizontalAlignment="Center"/>
 
-        <TextBox Grid.Row="2" Text="{Binding NewItemPrice, UpdateSourceTrigger=PropertyChanged}" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="30"/>
-        <TextBlock Grid.Row="2" Text="Item Price:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Margin="10, 10, 500, 10"/>
-
-        <TextBox Grid.Row="3" Text="{Binding NewItemQuantity, UpdateSourceTrigger=PropertyChanged}" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="30"/>
-        <TextBlock Grid.Row="3" Text="Item Quantity:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Margin="10, 10, 500, 10"/>
-        
-        <Button Grid.Row="4" Content="Add Item" Height="50" Width="200" FontSize="30" Command="{Binding AddItemCommand}"/>
-        
     </Grid>
 </Window>
