@@ -5,36 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InventoryManager"
         xmlns:view="clr-namespace:InventoryManager.View"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="750">
+        Title="MainWindow" Height="500" Width="800">
     <Grid>
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox Grid.Column="0" ItemsSource="{Binding Items}"
-         Height="450" >
-
+        <ListBox Grid.Column="0" ItemsSource="{Binding Items}" Height="450">
             <ListBox.ItemTemplate>
-
                 <DataTemplate>
-
                     <StackPanel>
-
                         <TextBlock Text="{Binding Name}"/>
-
                         <TextBlock Text="{Binding Price}"/>
-
                         <TextBlock Text="{Binding Quantity}"/>
-
+                        <TextBlock Text="--------------------"/>
                     </StackPanel>
-
                 </DataTemplate>
-
             </ListBox.ItemTemplate>
-
         </ListBox>
 
         <view:AddItemView Grid.Column="1" HorizontalAlignment="Center"/>

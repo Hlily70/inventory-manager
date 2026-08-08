@@ -5,41 +5,42 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:InventoryManager.View"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="500">
+             Height="400" Width="460">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.5*"/>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition />
 
 
 
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Text="Add New Item" FontSize="50" FontFamily="Calibri" 
-                   HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="DarkSlateGray"/>
+                   HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="DarkSlateGray"
+                   Margin="5,10,0,0"/>
         
         <TextBlock Grid.Row="1" Text="Item Name:" FontSize="20" FontFamily="Calibri" 
-                   HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
-        <TextBox Grid.Row="2" Width="450" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" 
-                 Margin="5,0,0,0" Text="{Binding NewItemName, UpdateSourceTrigger=PropertyChanged}"/>
+                   HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+        <TextBox Grid.Row="2" Width="450" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                 Margin="5,0,0,10" Text="{Binding NewItemName, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Grid.Row="3" Text="Item Price:" FontSize="20" FontFamily="Calibri" 
-           HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
-        <TextBox Grid.Row="4" Width="450" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" 
-         Margin="5,0,0,0" Text="{Binding NewItemPrice, UpdateSourceTrigger=PropertyChanged}"/>
+           HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+        <TextBox Grid.Row="4" Width="450" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" 
+         Margin="5,0,0,10" Text="{Binding NewItemPrice, UpdateSourceTrigger=PropertyChanged}"/>
         
         <TextBlock Grid.Row="5" Text="Item Quantity:" FontSize="20" FontFamily="Calibri" 
-           HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
-        <TextBox Grid.Row="6" Width="450" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" 
-         Margin="5,0,0,0" Text="{Binding NewItemQuantity, UpdateSourceTrigger=PropertyChanged}"/>
+           HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+        <TextBox Grid.Row="6" Width="450" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" 
+         Margin="5,0,0,10" Text="{Binding NewItemQuantity, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Button Grid.Row="7" Content="Add Item" Width="125" Height="45" HorizontalAlignment="Left" 
-                VerticalAlignment="Center" FontSize="24" FontFamily="Calibri" Margin="5,0,0,0"
+                VerticalAlignment="Center" FontSize="24" FontFamily="Calibri" Margin="5,0,0,10"
                 Command="{Binding AddItemCommand}"/>
 
 
