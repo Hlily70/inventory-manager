@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace InventoryManager.View
 {
     /// <summary>
-    /// Interaction logic for TestUI.xaml
+    /// Interaction logic for InventoryView.xaml
     /// </summary>
-    public partial class TestUI : UserControl
+    public partial class InventoryView : UserControl
     {
-        public TestUI()
+        public InventoryView()
         {
             InitializeComponent();
         }

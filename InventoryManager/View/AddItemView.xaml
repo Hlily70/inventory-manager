@@ -5,8 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:InventoryManager.View"
              mc:Ignorable="d" 
-             Height="400" Width="460">
+             Height="400" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2.75*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="20"/>
@@ -16,32 +22,34 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="50"/>
             <RowDefinition />
-
-
-
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="Add New Item" FontSize="50" FontFamily="Calibri" 
+
+        <Button Grid.Row="0" Grid.Column="0" Content="Back" Width="100" Height="45" HorizontalAlignment="Left" 
+                VerticalAlignment="Top" FontSize="24" FontFamily="Calibri" Margin="5,10,0,0"
+                Command="{Binding ShowInventoryCommand}"/>
+
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Add New Item" FontSize="50" FontFamily="Calibri" 
                    HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="DarkSlateGray"
                    Margin="5,10,0,0"/>
         
-        <TextBlock Grid.Row="1" Text="Item Name:" FontSize="20" FontFamily="Calibri" 
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Item Name:" FontSize="20" FontFamily="Calibri" 
                    HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
-        <TextBox Grid.Row="2" Width="450" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" 
-                 Margin="5,0,0,10" Text="{Binding NewItemName, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Width="450" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                 Margin="5,0,0,10" Text="{Binding Inventory.NewItemName, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <TextBlock Grid.Row="3" Text="Item Price:" FontSize="20" FontFamily="Calibri" 
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="Item Price:" FontSize="20" FontFamily="Calibri" 
            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
-        <TextBox Grid.Row="4" Width="450" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" 
-         Margin="5,0,0,10" Text="{Binding NewItemPrice, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Width="450" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" 
+         Margin="5,0,0,10" Text="{Binding Inventory.NewItemPrice, UpdateSourceTrigger=PropertyChanged}"/>
         
-        <TextBlock Grid.Row="5" Text="Item Quantity:" FontSize="20" FontFamily="Calibri" 
+        <TextBlock Grid.Row="5" Grid.Column="1" Text="Item Quantity:" FontSize="20" FontFamily="Calibri" 
            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
-        <TextBox Grid.Row="6" Width="450" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" 
-         Margin="5,0,0,10" Text="{Binding NewItemQuantity, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Width="450" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" 
+         Margin="5,0,0,10" Text="{Binding Inventory.NewItemQuantity, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Button Grid.Row="7" Content="Add Item" Width="125" Height="45" HorizontalAlignment="Left" 
+        <Button Grid.Row="7" Grid.Column="1" Content="Save Item" Width="125" Height="45" HorizontalAlignment="Left" 
                 VerticalAlignment="Center" FontSize="24" FontFamily="Calibri" Margin="5,0,0,10"
-                Command="{Binding AddItemCommand}"/>
+                Command="{Binding Inventory.AddItemCommand}"/>
 
 
     </Grid>

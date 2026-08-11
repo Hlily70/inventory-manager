@@ -17,7 +17,7 @@ namespace InventoryManager
         {
             InitializeComponent();
 
-            this.DataContext = new ViewModel.GroceryInventory();
+            this.DataContext = new ViewModel.MainWindowViewModel();
         }
 
     }

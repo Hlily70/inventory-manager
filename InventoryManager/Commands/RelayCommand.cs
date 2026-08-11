@@ -26,6 +26,6 @@ namespace InventoryManager.Commands
             return true;
         }
 
-        public event EventHandler? CanExecuteChanged;
+        public event EventHandler? CanExecuteChanged;   // boilerplate code for ICommand interface
     }
 }
