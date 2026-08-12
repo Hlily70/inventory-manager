@@ -16,7 +16,9 @@ namespace InventoryManager.ViewModel
         private InventoryData data;
         public RelayCommand AddItemCommand { get; }
         public RelayCommand DeleteItemCommand { get; }
+        public RelayCommand EditItemCommand { get; }
         public ObservableCollection<GroceryItem> Items { get; set; }
+
         private GroceryItem? _selectedItem;
         public GroceryItem? SelectedItem
         {
@@ -38,6 +40,7 @@ namespace InventoryManager.ViewModel
             Items = data.Load();
             AddItemCommand = new RelayCommand(AddItem);
             DeleteItemCommand = new RelayCommand(DeleteItem, CanDeleteItem);
+            EditItemCommand = new RelayCommand(EditItem);
         }
         
 
@@ -65,6 +68,17 @@ namespace InventoryManager.ViewModel
         private bool CanDeleteItem()
         {
             return SelectedItem != null;
+        }
+
+        public void EditItem()
+        {
+            if (SelectedItem != null)
+            {
+                SelectedItem.Name = NewItemName;
+                SelectedItem.Price = NewItemPrice;
+                SelectedItem.Quantity = NewItemQuantity;
+                data.Save(Items);
+            }
         }
     }
 }

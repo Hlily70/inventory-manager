@@ -6,9 +6,10 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
-using InventoryManager.View;
 using System.Windows.Input;
 using InventoryManager.Commands;
+using InventoryManager.Model;
+using InventoryManager.View;
 
 namespace InventoryManager.ViewModel
 {
@@ -16,10 +17,20 @@ namespace InventoryManager.ViewModel
     {
         public ICommand ShowAddItemCommand { get; }
         public ICommand ShowInventoryCommand { get; }
+        public RelayCommand ShowEditItemCommand { get; }
 
         private UserControl _currentView = null!;
 
         public GroceryInventory Inventory { get; }
+        public GroceryItem? CurrentItem
+        {
+            get { return Inventory.SelectedItem; }
+            set
+            {
+                Inventory.SelectedItem = value;
+                ShowEditItemCommand.RaiseCanExecuteChanged();
+            }
+        }
 
         public UserControl CurrentView
         {
@@ -36,6 +47,7 @@ namespace InventoryManager.ViewModel
         {
             ShowAddItemCommand = new RelayCommand(ShowAddItem);
             ShowInventoryCommand = new RelayCommand(ShowInventory);
+            ShowEditItemCommand = new RelayCommand(ShowEditItem, CanShowEditItem);
 
             Inventory = new GroceryInventory();
 
@@ -61,5 +73,15 @@ namespace InventoryManager.ViewModel
         {
             CurrentView = new InventoryView();
         }
+
+        private void ShowEditItem()
+        {
+            CurrentView = new EditItemView();
+        }
+        private bool CanShowEditItem()
+        {
+            return CurrentItem != null;
+        }
+
     }
 }

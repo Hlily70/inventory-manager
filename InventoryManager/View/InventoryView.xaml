@@ -21,7 +21,7 @@
                 Command="{Binding ShowAddItemCommand}"/>
         <Border Grid.Row="0" BorderBrush="DarkSlateGray" BorderThickness="1" />
 
-        <ListBox Grid.Row="1" ItemsSource="{Binding Inventory.Items}" SelectedItem="{Binding Inventory.SelectedItem}" Height="250" Margin="0,50,0,125">
+        <ListBox Grid.Row="1" ItemsSource="{Binding Inventory.Items}" SelectedItem="{Binding CurrentItem}" Height="250" Margin="0,50,0,125">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
 
@@ -61,7 +61,9 @@
         </ListBox>
 
         <Button Grid.Row="2" Content="Delete" Command="{Binding Inventory.DeleteItemCommand}" 
-                VerticalAlignment="Center" Margin="5,0,0,0"/>
+                VerticalAlignment="Center" Margin="5,0,0,0" Width="75"/>
+        <Button Grid.Row="2" Content="Edit" Command="{Binding ShowEditItemCommand}" 
+                VerticalAlignment="Center" Margin="100,0,0,0" Width="75"/>
 
     </Grid>
 </UserControl>
