@@ -11,6 +11,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Text="Inventory" FontSize="36" FontFamily="Calibri" 
@@ -20,7 +21,7 @@
                 Command="{Binding ShowAddItemCommand}"/>
         <Border Grid.Row="0" BorderBrush="DarkSlateGray" BorderThickness="1" />
 
-        <ListBox Grid.Row="1" ItemsSource="{Binding Inventory.Items}" Height="300">
+        <ListBox Grid.Row="1" ItemsSource="{Binding Inventory.Items}" SelectedItem="{Binding Inventory.SelectedItem}" Height="250" Margin="0,50,0,125">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
 
@@ -58,5 +59,9 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+        <Button Grid.Row="2" Content="Delete" Command="{Binding Inventory.DeleteItemCommand}" 
+                VerticalAlignment="Center" Margin="5,0,0,0"/>
+
     </Grid>
 </UserControl>

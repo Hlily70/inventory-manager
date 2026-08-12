@@ -25,11 +25,19 @@ namespace InventoryManager.Data
         {
             if (!File.Exists(filePath))
             {
-                return new ObservableCollection<GroceryItem>(); // Return an empty collection if the file doesn't exist
+                return new ObservableCollection<GroceryItem>();
             }
 
             string json = File.ReadAllText(filePath);
-            ObservableCollection<GroceryItem>? items = JsonSerializer.Deserialize<ObservableCollection<GroceryItem>>(json);
+
+            if (string.IsNullOrWhiteSpace(json))
+            {
+                return new ObservableCollection<GroceryItem>();
+            }
+
+            ObservableCollection<GroceryItem>? items =
+                JsonSerializer.Deserialize<ObservableCollection<GroceryItem>>(json);
+
             return items ?? new ObservableCollection<GroceryItem>();
         }
 
