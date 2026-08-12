@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using InventoryManager.Commands;
 using InventoryManager.Model;
+using InventoryManager.Data;
 
 namespace InventoryManager.ViewModel
 {
     public class GroceryInventory
     {
+        private InventoryData data;
         public ICommand AddItemCommand { get; }
         public ObservableCollection<GroceryItem> Items { get; set; }
         public string NewItemName { get; set; } = "";
@@ -19,8 +21,10 @@ namespace InventoryManager.ViewModel
         public int NewItemQuantity { get; set; }
 
         
-        public GroceryInventory() { 
-            Items = new ObservableCollection<GroceryItem>();
+        public GroceryInventory() 
+        {
+            data = new InventoryData();
+            Items = data.Load();
             AddItemCommand = new RelayCommand(AddItem);
         }
         
@@ -33,6 +37,9 @@ namespace InventoryManager.ViewModel
             item.Quantity = NewItemQuantity;
 
             Items.Add(item);
+            item.Id = Items.Count;
+
+            data.Save(Items);
         }
     }
 }
