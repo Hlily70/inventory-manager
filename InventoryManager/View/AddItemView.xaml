@@ -49,7 +49,7 @@
 
         <Button Grid.Row="7" Grid.Column="1" Content="Save Item" Width="125" Height="45" HorizontalAlignment="Left" 
                 VerticalAlignment="Center" FontSize="24" FontFamily="Calibri" Margin="5,0,0,10"
-                Command="{Binding Inventory.AddItemCommand}"/>
+                Command="{Binding AddCloseCommand}"/>
 
 
     </Grid>

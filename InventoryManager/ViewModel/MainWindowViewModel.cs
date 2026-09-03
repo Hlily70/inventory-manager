@@ -18,6 +18,9 @@ namespace InventoryManager.ViewModel
         public ICommand ShowAddItemCommand { get; }
         public ICommand ShowInventoryCommand { get; }
         public RelayCommand ShowEditItemCommand { get; }
+        public RelayCommand AddCloseCommand { get; }
+        public RelayCommand EditCloseCommand { get; }
+
 
         private UserControl _currentView = null!;
 
@@ -48,6 +51,8 @@ namespace InventoryManager.ViewModel
             ShowAddItemCommand = new RelayCommand(ShowAddItem);
             ShowInventoryCommand = new RelayCommand(ShowInventory);
             ShowEditItemCommand = new RelayCommand(ShowEditItem, CanShowEditItem);
+            AddCloseCommand = new RelayCommand(AddItemAndClose);
+            EditCloseCommand = new RelayCommand(EditItemAndClose);
 
             Inventory = new GroceryInventory();
 
@@ -81,6 +86,16 @@ namespace InventoryManager.ViewModel
         private bool CanShowEditItem()
         {
             return CurrentItem != null;
+        }
+        private void AddItemAndClose()
+        {
+            Inventory.AddItem();
+            ShowInventory();
+        }
+        private void EditItemAndClose()
+        {
+            Inventory.EditItem();
+            ShowInventory();
         }
 
     }
